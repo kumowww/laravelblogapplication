@@ -10,13 +10,13 @@
     </p>
 
     <div style="margin-top: 30px; display: flex; justify-content: center; gap: 20px;">
-        <form action="{{ route('index.execute', ['locale' => $locale]) }}" method="POST">
+        <form action="{{ route('index.execute') }}" method="POST">
             @csrf
             <input type="hidden" name="code" value="return 'System Check OK';">
             <button type="submit" class="btn">Execute Action</button>
         </form>
 
-        <form action="{{ route('system.clear', ['locale' => $locale]) }}" method="POST">
+        <form action="{{ route('system.clear') }}" method="POST">
             @csrf
             <button type="submit" class="btn" style="background: #f44336;">Clear Cache</button>
         </form>

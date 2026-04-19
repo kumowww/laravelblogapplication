@@ -1,7 +1,8 @@
 {
   "version": 2,
+  "framework": null,
   "installCommand": "composer install",
-  "buildCommand": "php artisan route:clear && php artisan config:clear",
+  "buildCommand": "php artisan config:clear && php artisan route:clear && php artisan view:clear",
   "builds": [
     {
       "src": "api/index.php",
@@ -10,7 +11,7 @@
   ],
   "routes": [
     {
-      "src": "/(css|js|images)/(.*)",
+      "src": "/(css|js|images|fonts)/(.*)",
       "dest": "/public/$1/$2"
     },
     {
