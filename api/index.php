@@ -19,6 +19,13 @@ foreach ($paths as $path) {
     }
 }
 
+config([
+    'view.compiled' => '/tmp/storage/framework/views',
+    'cache.default' => 'array',
+    'session.driver' => 'cookie',
+    'database.default' => 'pgsql',
+]);
+
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
 $response = $kernel->handle(
