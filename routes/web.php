@@ -1,20 +1,25 @@
 <?php
 
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\ProductController;
 
-Route::get('/', [PostController::class, 'index'])->name('posts.index');
-Route::get('/post/{post}', [PostController::class, 'show'])->name('posts.show');
+Route::post('/execute', [IndexController::class, 'execute'])->name('index.execute');
+Route::post('/system/clear', [IndexController::class, 'clear'])->name('system.clear');
 
-Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
-Route::post('/login', [AuthController::class, 'login']);
-Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');
+Route::get('/', function () {
+    return redirect('/en');
+});
 
-Route::middleware('auth')->group(function () {
-    Route::get('/create', [PostController::class, 'create'])->name('posts.create');
-    Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
-    Route::get('/post/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
-    Route::put('/post/{post}', [PostController::class, 'update'])->name('posts.update');
-    Route::delete('/post/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
+Route::group(['prefix' => '{locale}', 'where' => ['locale' => 'en|ru|de']], function () {
+    Route::get('/', [IndexController::class, 'index'])->name('home');
+    Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+    
+    Route::get('/posts', function() {
+        return view('posts.index');
+    })->name('posts.index');
+    
+    Route::get('/posts/create', function() {
+        return "Create Post Page";
+    })->name('posts.create');
 });

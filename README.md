@@ -1,6 +1,8 @@
 # Laravel Blog Application
 
-A minimalist blog system built with Laravel, Blade templates, and Tailwind CSS.
+A minimalist blog system built with Laravel, Blade templates, and Tailwind CSS. This project is optimized for serverless deployment on the Vercel platform.
+
+Visit the live project: https://laravelnothers.vercel.app/
 
 ## Features
 
@@ -25,7 +27,7 @@ git clone https://github.com/kumowww/laravelNothers.git
 
 Navigate to the project directory:
 
-cd laravel
+cd laravelNothers
 
 Install PHP dependencies:
 
@@ -35,29 +37,29 @@ Install Node dependencies:
 
 npm install
 
-Environment setup
+## Environment Setup
 
 Copy the example environment file:
 
-copy .env.example .env
+cp .env.example .env
 
 Generate application key:
 
-php artisan key
+php artisan key:generate
 
-Database
+## Database
 
 Create SQLite database file:
 
-database/database.sqlite
+touch database/database.sqlite
 
 Run migrations:
 
 php artisan migrate
 
-Running the project
+## Running the Project
 
-Start Vite:
+Start Vite (Frontend):
 
 npm run dev
 
@@ -69,17 +71,22 @@ Open in browser:
 
 http://127.0.0.1:8000
 
-Project structure
-routes/ – application routes
-app/ – core logic
-resources/views/ – Blade templates
-public/ – public assets
-Future improvements
-authentication system
-CRUD functionality
-admin panel
-API endpoints
-improved UI
-License
+## Project Structure
+
+- routes/ - application routes
+- app/ - core logic
+- resources/views/ - Blade templates
+- public/ - public assets
+- api/ - serverless entry point for Vercel
+
+## Future Improvements
+
+- authentication system
+- CRUD functionality
+- admin panel
+- API endpoints
+- improved UI
+
+## License
 
 This project is open-source and available under the MIT License.
