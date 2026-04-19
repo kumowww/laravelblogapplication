@@ -4,21 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class IndexController extends Controller
+class PostController extends Controller
 {
     public function index(Request $request)
     {
         $locale = $request->route('locale', 'en');
-        return view('index', ['locale' => $locale]);
+        return view('posts.index', ['locale' => $locale]);
     }
 
-    public function execute(Request $request)
+    public function create(Request $request)
     {
-        return back();
-    }
-
-    public function clear(Request $request)
-    {
-        return back();
+        $locale = $request->route('locale', 'en');
+        return view('posts.create', ['locale' => $locale]);
     }
 }

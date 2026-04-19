@@ -3,27 +3,21 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 
 class LocaleValidation
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
-     */
+    protected array $validLocales = ['en', 'ru', 'de'];
+
     public function handle(Request $request, Closure $next)
     {
-        $locale = $request->header('Accept-Language');
+        $locale = $request->route('locale');
 
-        if ($locale && !in_array($locale, config('app.locales'))) {
-            return response()->json(['error' => 'Unsupported locale'], 400);
+        if (!in_array($locale, $this->validLocales)) {
+            return redirect('/en');
         }
 
-        App::setLocale($locale);
+        app()->setLocale($locale);
 
         return $next($request);
     }

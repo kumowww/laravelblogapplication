@@ -5,16 +5,21 @@ use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 
 return Application::configure(basePath: dirname(__DIR__))
+    ->withStructure(
+        resources: base_path('resources'),
+        database: base_path('database'),
+    )
     ->withRouting(
-        web: __DIR__.'/../routes/web.php',
-        commands: __DIR__.'/../routes/console.php',
+        web: base_path('routes/web.php'),
+        api: base_path('routes/api.php'),
+        commands: base_path('routes/console.php'),
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-    $middleware->alias([
-        'locale.validation' => \App\Http\Middleware\LocaleValidation::class,
+        $middleware->alias([
+            'locale.validation' => \App\Http\Middleware\LocaleValidation::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
-        // 0_0
-    })->create();
+    })
+    ->create();

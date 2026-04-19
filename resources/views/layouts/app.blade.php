@@ -13,7 +13,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: #fff;
             color: #333;
             transition: background 0.3s, color 0.3s;
@@ -92,6 +92,7 @@
             color: #666;
             border-radius: 4px;
             transition: all 0.3s;
+            cursor: pointer;
         }
 
         body[data-theme="dark"] .locale-switcher a {
@@ -135,9 +136,6 @@
             padding: 12px 16px;
             margin-bottom: 20px;
             border-radius: 6px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
 
         .alert-success {
@@ -150,10 +148,6 @@
             background: #f8d7da;
             border: 1px solid #f5c6cb;
             color: #721c24;
-        }
-
-        .alert ul {
-            list-style: none;
         }
 
         .btn {
@@ -231,23 +225,19 @@
     @if ($errors->any())
         <div class="container">
             <div class="alert alert-danger">
-                <div>
-                    <strong>Ошибка!</strong>
-                    <ul style="margin-top: 10px;">
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
+                <strong>Error:</strong>
+                <ul style="margin-top: 10px;">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
         </div>
     @endif
 
     @if (session('success'))
         <div class="container">
-            <div class="alert alert-success">
-                <span>{{ session('success') }}</span>
-            </div>
+            <div class="alert alert-success">{{ session('success') }}</div>
         </div>
     @endif
 

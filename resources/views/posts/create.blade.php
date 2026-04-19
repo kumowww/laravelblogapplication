@@ -11,13 +11,13 @@
         
         <div style="margin-bottom: 20px;">
             <label for="title" style="display: block; margin-bottom: 8px; font-weight: 500;">Title</label>
-            <input type="text" id="title" name="title" required class="form-control" 
+            <input type="text" id="title" name="title" required 
                    style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px;">
         </div>
 
         <div style="margin-bottom: 20px;">
             <label for="content" style="display: block; margin-bottom: 8px; font-weight: 500;">Content</label>
-            <textarea id="content" name="content" rows="10" required class="form-control"
+            <textarea id="content" name="content" rows="10" required
                       style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; font-family: monospace;"></textarea>
         </div>
 

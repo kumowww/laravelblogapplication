@@ -16,7 +16,6 @@ class IndexController extends Controller
     {
         return back();
     }
-
     public function clear(Request $request)
     {
         return back();
