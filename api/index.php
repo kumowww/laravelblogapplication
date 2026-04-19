@@ -24,9 +24,10 @@ config([
     'view.compiled' => '/tmp/framework/views',
     'cache.default' => 'array',
     'session.driver' => 'cookie',
+    'logging.default' => 'errorlog',
 ]);
 
-$kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
+$kernel = $app->make(Illuminate\Http\Kernel::class);
 
 $response = $kernel->handle(
     $request = Illuminate\Http\Request::capture()

@@ -6,15 +6,6 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Artisan;
 
-Route::get('/run-migrations', function () {
-    try {
-        Artisan::call('migrate', ['--force' => true]);
-        return "Миграции успешно выполнены: " . Artisan::output();
-    } catch (\Exception $e) {
-        return "Ошибка: " . $e->getMessage();
-    }
-});
-
 Route::get('/', function () {
     return redirect('/en');
 });
@@ -38,4 +29,15 @@ Route::middleware(['locale.validation'])->group(function () {
     Route::get('/{locale}/posts/create', [PostController::class, 'create'])
         ->where('locale', 'en|ru|de')
         ->name('posts.create');
+});
+
+
+
+Route::get('/run-migrations', function () {
+    try {
+        Artisan::call('migrate', ['--force' => true]);
+        return "Success: " . Artisan::output();
+    } catch (\Exception $e) {
+        return "Error: " . $e->getMessage();
+    }
 });
