@@ -24,6 +24,7 @@ config([
     'cache.stores.file.path' => '/tmp/storage/framework/cache/data',
     'session.driver' => 'cookie', 
     'logging.channels.single.path' => '/tmp/storage/logs/laravel.log',
+    'app.debug' => false,
 ]);
 
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
