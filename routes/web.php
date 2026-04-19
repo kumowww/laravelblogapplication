@@ -4,6 +4,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PostController;
+use Illuminate\Support\Facades\Artisan;
+
+Route::get('/run-migrations', function () {
+    try {
+        Artisan::call('migrate', ['--force' => true]);
+        return "Миграции успешно выполнены: " . Artisan::output();
+    } catch (\Exception $e) {
+        return "Ошибка: " . $e->getMessage();
+    }
+});
 
 Route::get('/', function () {
     return redirect('/en');
