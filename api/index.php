@@ -24,25 +24,40 @@ $app->singleton('files', function () {
     return new Illuminate\Filesystem\Filesystem;
 });
 
-$app->singleton('encrypter', function ($app) {
-    $config = $app->make('config')->get('app');
-    
-    if (empty($config['key'])) {
-        $config['key'] = 'base64:2ZqU8Xh9LpV3mN7rT5wY1kC4bJ6sF0gH2aD8eK9nM=';
-    }
-    
-    $key = $config['key'];
-    
-    if (str_starts_with($key, 'base64:')) {
-        $key = base64_decode(substr($key, 7));
-    }
-    
-    return new Illuminate\Encryption\Encrypter($key, $config['cipher']);
+$app->singleton('config', function () use ($app) {
+    $config = new Illuminate\Config\Repository();
+    $config->set('app', [
+        'key' => 'base64:2ZqU8Xh9LpV3mN7rT5wY1kC4bJ6sF0gH2aD8eK9nM=',
+        'cipher' => 'AES-256-CBC',
+        'debug' => true,
+        'url' => env('APP_URL', 'https://laravelblogapplication.vercel.app'),
+        'timezone' => 'UTC',
+        'locale' => 'en',
+        'fallback_locale' => 'en',
+        'faker_locale' => 'en_US',
+    ]);
+    $config->set('view', [
+        'paths' => [__DIR__ . '/../resources/views'],
+        'compiled' => '/tmp/storage/framework/views',
+    ]);
+    $config->set('session', [
+        'driver' => 'file',
+        'files' => '/tmp/storage/framework/sessions',
+        'cookie' => 'laravel_session',
+        'path' => '/',
+        'domain' => null,
+        'secure' => true,
+        'http_only' => true,
+        'same_site' => 'lax',
+    ]);
+    return $config;
 });
+
+$app->alias('config', Illuminate\Config\Repository::class);
 
 $app->register(Illuminate\View\ViewServiceProvider::class);
 $app->register(Illuminate\Filesystem\FilesystemServiceProvider::class);
-$app->register(Illuminate\Encryption\EncryptionServiceProvider::class);
+$app->register(Illuminate\Session\SessionServiceProvider::class);
 
 try {
     $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
