@@ -19,6 +19,8 @@ foreach ($paths as $path) {
     }
 }
 
+$app->register(Illuminate\View\ViewServiceProvider::class);
+
 try {
     $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
     
