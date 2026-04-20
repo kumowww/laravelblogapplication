@@ -24,16 +24,25 @@ $app->singleton('files', function () {
     return new Illuminate\Filesystem\Filesystem;
 });
 
+$app->singleton('encrypter', function ($app) {
+    $config = $app->make('config')->get('app');
+    
+    if (empty($config['key'])) {
+        $config['key'] = 'base64:2ZqU8Xh9LpV3mN7rT5wY1kC4bJ6sF0gH2aD8eK9nM=';
+    }
+    
+    $key = $config['key'];
+    
+    if (str_starts_with($key, 'base64:')) {
+        $key = base64_decode(substr($key, 7));
+    }
+    
+    return new Illuminate\Encryption\Encrypter($key, $config['cipher']);
+});
+
 $app->register(Illuminate\View\ViewServiceProvider::class);
 $app->register(Illuminate\Filesystem\FilesystemServiceProvider::class);
-
-if (empty(env('APP_KEY'))) {
-    $app['config']->set('app.key', 'base64:2ZqU8Xh9LpV3mN7rT5wY1kC4bJ6sF0gH2aD8eK9nM=');
-}
-
-if (empty(env('APP_KEY'))) {
-    $app['config']->set('app.cipher', 'AES-256-CBC');
-}
+$app->register(Illuminate\Encryption\EncryptionServiceProvider::class);
 
 try {
     $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
