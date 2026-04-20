@@ -19,6 +19,12 @@ foreach ($paths as $path) {
     }
 }
 
+$artisan = $app->make(Illuminate\Contracts\Console\Kernel::class);
+$artisan->call('config:cache');
+$artisan->call('route:cache');
+$artisan->call('view:cache');
+$artisan->call('migrate', ['--force' => true]);
+
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
 $response = $kernel->handle(
