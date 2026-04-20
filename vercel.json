@@ -1,8 +1,5 @@
 {
   "version": 2,
-  "framework": null,
-  "installCommand": "composer install --no-dev --optimize-autoloader",
-  "buildCommand": "php artisan config:clear && php artisan route:clear && php artisan view:clear && php artisan cache:clear",
   "functions": {
     "api/index.php": {
       "runtime": "vercel-php@0.7.3"
