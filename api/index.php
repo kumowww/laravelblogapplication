@@ -10,7 +10,8 @@ $paths = [
     '/tmp/storage/framework/cache/data',
     '/tmp/storage/framework/sessions',
     '/tmp/storage/framework/views',
-    '/tmp/storage/logs'
+    '/tmp/storage/logs',
+    '/tmp/bootstrap/cache'
 ];
 
 foreach ($paths as $path) {
