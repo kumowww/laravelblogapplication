@@ -18,13 +18,13 @@
 
         <form action="{{ route('system.clear', ['locale' => $locale]) }}" method="POST">
             @csrf
-            <button type="submit" class="btn" style="background: #f44336;">@lang('messages.clear_cache')</button>
+            <button type="submit" class="btn btn-clear">@lang('messages.clear_cache')</button>
         </form>
     </div>
 
     <div style="margin-top: 30px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-        <a href="{{ route('posts.index', ['locale' => $locale]) }}" class="btn" style="min-width: 150px;">@lang('messages.view_posts')</a>
-        <a href="{{ route('products.index', ['locale' => $locale]) }}" class="btn" style="min-width: 150px;">@lang('messages.view_products')</a>
+        <a href="{{ route('posts.index', ['locale' => $locale]) }}" class="btn">@lang('messages.view_posts')</a>
+        <a href="{{ route('products.index', ['locale' => $locale]) }}" class="btn">@lang('messages.view_products')</a>
     </div>
 </div>
 @endsection
