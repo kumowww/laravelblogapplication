@@ -31,6 +31,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            transition: background 0.3s, border-color 0.3s;
         }
 
         body[data-theme="dark"] header {
@@ -54,11 +55,15 @@
 
         nav a {
             text-decoration: none;
-            color: inherit;
+            color: #333;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: color 0.3s, border-color 0.3s;
             padding: 5px 0;
             border-bottom: 2px solid transparent;
+        }
+
+        body[data-theme="dark"] nav a {
+            color: #f0f0f0;
         }
 
         nav a:hover {
@@ -83,6 +88,7 @@
             background: #f5f5f5;
             border-radius: 6px;
             padding: 4px 8px;
+            transition: background 0.3s;
         }
 
         body[data-theme="dark"] .locale-switcher {
@@ -152,7 +158,7 @@
         }
 
         .slider .icon {
-            font-size: 16px;
+            font-size: 18px;
             line-height: 1;
             transition: opacity 0.2s;
             pointer-events: none;
@@ -238,7 +244,7 @@
             border: none;
             cursor: pointer;
             font-weight: 500;
-            transition: background 0.3s;
+            transition: background 0.3s, color 0.3s;
             text-align: center;
             box-sizing: border-box;
         }
@@ -276,11 +282,32 @@
         h1 {
             margin-bottom: 20px;
             font-size: 32px;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        body[data-theme="dark"] h1 {
+            color: #f0f0f0;
         }
 
         h2 {
             margin-bottom: 15px;
             font-size: 24px;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        body[data-theme="dark"] h2 {
+            color: #f0f0f0;
+        }
+
+        p {
+            color: #666;
+            transition: color 0.3s;
+        }
+
+        body[data-theme="dark"] p {
+            color: #aaa;
         }
 
         main {
@@ -293,10 +320,12 @@
             color: #999;
             border-top: 1px solid #e0e0e0;
             margin-top: 60px;
+            transition: color 0.3s, border-color 0.3s;
         }
 
         body[data-theme="dark"] footer {
             border-top-color: #333;
+            color: #aaa;
         }
 
         .creator-link {
@@ -337,8 +366,8 @@
                 <label class="theme-toggle-switch">
                     <input type="checkbox" id="theme-toggle-input">
                     <span class="slider">
-                        <span class="icon sun">☀️</span>
-                        <span class="icon moon">🌙</span>
+                        <span class="icon sun">☀</span>
+                        <span class="icon moon">☾</span>
                     </span>
                 </label>
             </div>
