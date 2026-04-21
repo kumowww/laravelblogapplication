@@ -409,7 +409,7 @@
     <script>
         (function() {
             function applyTheme(theme) {
-                document.documentElement.setAttribute('data-theme', theme);
+                document.body.setAttribute('data-theme', theme);
                 localStorage.setItem('theme', theme);
                 var checkbox = document.getElementById('theme-toggle-input');
                 if (checkbox) {

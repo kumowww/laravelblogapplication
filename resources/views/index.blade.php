@@ -5,7 +5,7 @@
 @section('content')
 <div style="text-align: center; padding: 40px 0;">
     <h1>@lang('messages.welcome')</h1>
-    <p style="font-size: 18px; margin: 20px 0; color: #666;">
+    <p style="font-size: 18px; margin: 20px 0;">
         @lang('messages.current_language'): <strong>{{ strtoupper($locale) }}</strong>
     </p>
 
