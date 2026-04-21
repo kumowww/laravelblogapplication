@@ -2,28 +2,28 @@
 
 A minimalist blog system built with Laravel, Blade templates, and Tailwind CSS. This project is optimized for serverless deployment on the Vercel platform.
 
-Visit the live project: https://laravelblogapplication.vercel.app/
+Visit the live project: [https://laravelblogapplication.vercel.app/](https://laravelblogapplication.vercel.app/)
 
 ## Features
 
-- User authentication
-- Create, read, update and delete blog posts
-- Minimalist dark theme UI
-- Responsive design with Tailwind CSS
-- PostgreSQL/MySQL/SQLite support
+* Minimalist dark theme UI with light/dark mode toggle
+* Responsive design with Tailwind CSS
+* Multi-language support (English, German, Russian)
+* PostgreSQL/MySQL/SQLite support via environment configuration
+* Vercel serverless deployment ready
 
 ## Requirements
 
-- PHP 8.2 or higher
-- Composer
-- Node.js and npm
-- SQLite or MySQL
+* PHP 8.2 or higher
+* Composer
+* Node.js and npm
+* SQLite, MySQL, or PostgreSQL
 
 ## Installation
 
 Clone the repository:
 
-git clone https://github.com/kumowww/laravelNothers.git
+git clone https://github.com/kumowww/laravelblogapplication.git
 
 Navigate to the project directory:
 
