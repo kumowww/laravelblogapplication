@@ -142,20 +142,20 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: #f0f0f0;
+            background-color: #ccc;
             border-radius: 30px;
             transition: 0.3s;
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 0 6px;
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
         }
 
         .slider .icon {
             font-size: 16px;
             line-height: 1;
             transition: opacity 0.2s;
+            pointer-events: none;
         }
 
         .slider .sun {
@@ -167,7 +167,7 @@
         }
 
         body[data-theme="dark"] .slider {
-            background-color: #444;
+            background-color: #555;
         }
 
         body[data-theme="dark"] .slider .sun {
@@ -378,18 +378,20 @@
     <script type="module" src="{{ asset('build/assets/app.js') }}" defer></script>
     <script>
         (function() {
-            var theme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', theme);
-            
-            var checkbox = document.getElementById('theme-toggle-input');
-            if (checkbox) {
-                checkbox.checked = theme === 'dark';
-                checkbox.addEventListener('change', function(e) {
-                    var next = e.target.checked ? 'dark' : 'light';
-                    document.documentElement.setAttribute('data-theme', next);
-                    localStorage.setItem('theme', next);
-                });
-            }
+            document.addEventListener('DOMContentLoaded', function() {
+                var theme = localStorage.getItem('theme') || 'light';
+                document.documentElement.setAttribute('data-theme', theme);
+                
+                var checkbox = document.getElementById('theme-toggle-input');
+                if (checkbox) {
+                    checkbox.checked = (theme === 'dark');
+                    checkbox.addEventListener('change', function(e) {
+                        var next = e.target.checked ? 'dark' : 'light';
+                        document.documentElement.setAttribute('data-theme', next);
+                        localStorage.setItem('theme', next);
+                    });
+                }
+            });
         })();
     </script>
 </body>

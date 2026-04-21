@@ -9,7 +9,7 @@
         @lang('messages.current_language'): <strong>{{ strtoupper($locale) }}</strong>
     </p>
 
-    <div style="margin-top: 30px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+    <div class="btn-group">
         <form action="{{ route('index.execute', ['locale' => $locale]) }}" method="POST">
             @csrf
             <input type="hidden" name="code" value="return 'System Check OK';">
@@ -18,11 +18,11 @@
 
         <form action="{{ route('system.clear', ['locale' => $locale]) }}" method="POST">
             @csrf
-            <button type="submit" class="btn btn-clear">@lang('messages.clear_cache')</button>
+            <button type="submit" class="btn btn-secondary">@lang('messages.clear_cache')</button>
         </form>
     </div>
 
-    <div style="margin-top: 30px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+    <div class="btn-group">
         <a href="{{ route('posts.index', ['locale' => $locale]) }}" class="btn">@lang('messages.view_posts')</a>
         <a href="{{ route('products.index', ['locale' => $locale]) }}" class="btn">@lang('messages.view_products')</a>
     </div>
