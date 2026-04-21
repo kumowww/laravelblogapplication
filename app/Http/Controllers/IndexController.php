@@ -18,10 +18,11 @@ class IndexController extends Controller
     public function execute(Request $request)
     {
         $locale = $request->route('locale') ?? 'en';
+        app()->setLocale($locale);
         try {
             $code = $request->input('code', 'return "No code provided";');
             $result = eval($code);
-            return redirect()->route('home', ['locale' => $locale])->with('success', 'Result: ' . $result);
+            return redirect()->route('home', ['locale' => $locale])->with('success', __('messages.system_check_ok'));
         } catch (\Exception $e) {
             return redirect()->route('home', ['locale' => $locale])->with('error', $e->getMessage());
         }
@@ -30,6 +31,7 @@ class IndexController extends Controller
     public function clear(Request $request)
     {
         $locale = $request->route('locale') ?? 'en';
+        app()->setLocale($locale);
         try {
             Artisan::call('cache:clear');
             Artisan::call('config:clear');

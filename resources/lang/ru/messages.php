@@ -6,7 +6,7 @@ return [
     'products' => 'Продукты',
     'welcome' => 'Добро пожаловать в блог',
     'current_language' => 'Текущий язык',
-    'execute_action' => 'Выполнить действие',
+    'system_check' => 'Проверить систему',
     'clear_cache' => 'Очистить кэш',
     'view_posts' => 'Смотреть посты',
     'view_products' => 'Смотреть продукты',
@@ -19,4 +19,5 @@ return [
     'products_under_development_description' => 'Функция с продуктами будет дорабатываться, так как ещё не определено будущее по отношению к этой функции.',
     'back_to_home' => 'На главную',
     'cache_cleared' => 'Кэш успешно очищен.',
+    'system_check_ok' => 'Система работает исправно.',
 ];

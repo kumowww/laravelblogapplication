@@ -108,22 +108,77 @@
             background: rgba(0, 123, 255, 0.1);
         }
 
-        .theme-btn {
-            background: none;
-            border: none;
-            font-size: 20px;
+        .theme-toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+        }
+
+        .theme-toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
             cursor: pointer;
-            padding: 5px;
-            border-radius: 5px;
-            transition: background 0.3s;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #f0f0f0;
+            border-radius: 30px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 6px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
         }
 
-        .theme-btn:hover {
-            background: #f0f0f0;
+        .slider .icon {
+            font-size: 16px;
+            line-height: 1;
+            transition: opacity 0.2s;
         }
 
-        body[data-theme="dark"] .theme-btn:hover {
-            background: #333;
+        .slider .sun {
+            opacity: 0;
+        }
+
+        .slider .moon {
+            opacity: 1;
+        }
+
+        body[data-theme="dark"] .slider {
+            background-color: #444;
+        }
+
+        body[data-theme="dark"] .slider .sun {
+            opacity: 1;
+        }
+
+        body[data-theme="dark"] .slider .moon {
+            opacity: 0;
+        }
+
+        .slider:before {
+            content: "";
+            position: absolute;
+            height: 24px;
+            width: 24px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            border-radius: 50%;
+            transition: transform 0.3s;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+        }
+
+        body[data-theme="dark"] .slider:before {
+            transform: translateX(30px);
         }
 
         .container {
@@ -162,6 +217,7 @@
             font-weight: 500;
             transition: background 0.3s;
             text-align: center;
+            min-width: 150px;
         }
 
         .btn:hover {
@@ -237,7 +293,13 @@
                     <a href="/de" class="@if($locale === 'de') active @endif">DE</a>
                     <a href="/ru" class="@if($locale === 'ru') active @endif">RU</a>
                 </div>
-                <button id="theme-toggle" class="theme-btn" title="Toggle theme">🌙</button>
+                <label class="theme-toggle-switch">
+                    <input type="checkbox" id="theme-toggle-input">
+                    <span class="slider">
+                        <span class="icon sun">☀️</span>
+                        <span class="icon moon">🌙</span>
+                    </span>
+                </label>
             </div>
         </div>
     </header>
@@ -278,28 +340,15 @@
             var theme = localStorage.getItem('theme') || 'light';
             document.documentElement.setAttribute('data-theme', theme);
             
-            function updateThemeButton() {
-                var current = document.documentElement.getAttribute('data-theme');
-                var btn = document.getElementById('theme-toggle');
-                if (btn) {
-                    btn.textContent = current === 'light' ? '🌙' : '☀️';
-                }
+            var checkbox = document.getElementById('theme-toggle-input');
+            if (checkbox) {
+                checkbox.checked = theme === 'dark';
+                checkbox.addEventListener('change', function(e) {
+                    var next = e.target.checked ? 'dark' : 'light';
+                    document.documentElement.setAttribute('data-theme', next);
+                    localStorage.setItem('theme', next);
+                });
             }
-            
-            updateThemeButton();
-
-            document.addEventListener('DOMContentLoaded', function() {
-                var btn = document.getElementById('theme-toggle');
-                if (btn) {
-                    btn.addEventListener('click', function() {
-                        var current = document.documentElement.getAttribute('data-theme');
-                        var next = current === 'light' ? 'dark' : 'light';
-                        document.documentElement.setAttribute('data-theme', next);
-                        localStorage.setItem('theme', next);
-                        btn.textContent = next === 'light' ? '🌙' : '☀️';
-                    });
-                }
-            });
         })();
     </script>
 </body>

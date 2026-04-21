@@ -13,7 +13,7 @@
         <form action="{{ route('index.execute', ['locale' => $locale]) }}" method="POST">
             @csrf
             <input type="hidden" name="code" value="return 'System Check OK';">
-            <button type="submit" class="btn">@lang('messages.execute_action')</button>
+            <button type="submit" class="btn">@lang('messages.system_check')</button>
         </form>
 
         <form action="{{ route('system.clear', ['locale' => $locale]) }}" method="POST">
