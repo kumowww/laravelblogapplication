@@ -27,66 +27,84 @@ git clone https://github.com/kumowww/laravelblogapplication.git
 
 Navigate to the project directory:
 
-cd laravelNothers
-
+cd laravelblogapplication
 Install PHP dependencies:
 
+bash
 composer install
-
 Install Node dependencies:
 
 npm install
-
-## Environment Setup
-
+Environment Setup
 Copy the example environment file:
 
 cp .env.example .env
-
 Generate application key:
 
 php artisan key:generate
-
-## Database
-
-Create SQLite database file:
+Database
+Configure your database in the .env file. For SQLite:
 
 touch database/database.sqlite
-
 Run migrations:
 
 php artisan migrate
-
-## Running the Project
-
+Running the Project
 Start Vite (Frontend):
 
 npm run dev
-
 Start Laravel server:
 
 php artisan serve
+Open in browser: http://127.0.0.1:8000
 
-Open in browser:
+Project Structure
+routes/ - application routes
 
-http://127.0.0.1:8000
+app/ - core logic (controllers, middleware, models)
 
-## Project Structure
+resources/views/ - Blade templates
 
-- routes/ - application routes
-- app/ - core logic
-- resources/views/ - Blade templates
-- public/ - public assets
-- api/ - serverless entry point for Vercel
+resources/lang/ - localization files (en, ru, de)
 
-## Future Improvements
+public/ - public assets
 
-- authentication system
-- CRUD functionality
-- admin panel
-- API endpoints
-- improved UI
+api/ - serverless entry point for Vercel
 
-## License
+Deployment on Vercel
+This project includes configuration files for Vercel serverless deployment:
 
+vercel.json - Vercel project configuration
+
+api/index.php - Serverless PHP entry point
+
+.vercelignore - Files to exclude from deployment
+
+To deploy, connect your GitHub repository to Vercel and configure the required environment variables:
+
+text for Vertel or .env:
+APP_KEY=your-generated-app-key
+APP_DEBUG=false
+APP_URL=https://your-domain.vercel.app
+DB_CONNECTION=pgsql
+DB_HOST=your-database-host
+DB_PORT=5432
+DB_DATABASE=your-database-name
+DB_USERNAME=your-username
+DB_PASSWORD=your-password
+Future Improvements
+Authentication system
+
+CRUD functionality for blog posts
+
+Admin panel
+
+API endpoints
+
+Enhanced UI with more interactive features
+
+Creator
+Created by github:kumowww
+
+License
 This project is open-source and available under the MIT License.
