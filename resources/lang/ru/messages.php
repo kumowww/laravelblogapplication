@@ -5,6 +5,8 @@ return [
     'posts' => 'Посты',
     'products' => 'Продукты',
     'login' => 'Вход',
+    'password' => 'Пароль',
+    'remember_me' => 'Запомнить меня',
     'welcome' => 'Добро пожаловать в блог',
     'current_language' => 'Текущий язык',
     'diagnostics' => 'Диагностика',

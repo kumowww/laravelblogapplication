@@ -5,6 +5,8 @@ return [
     'posts' => 'Posts',
     'products' => 'Products',
     'login' => 'Login',
+    'password' => 'Password',
+    'remember_me' => 'Remember me',
     'welcome' => 'Welcome to Blog',
     'current_language' => 'Current Language',
     'diagnostics' => 'Diagnostics',
@@ -28,4 +30,5 @@ return [
     'login_coming_soon_description' => 'The login feature is currently being prepared and will be available shortly.',
     'login_success' => 'Login successful (placeholder).',
     'logout_success' => 'Logout successful (placeholder).',
+    
 ];

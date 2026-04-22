@@ -5,6 +5,8 @@ return [
     'posts' => 'Beiträge',
     'products' => 'Produkte',
     'login' => 'Anmelden',
+    'password' => 'Passwort',
+    'remember_me' => 'Angemeldet bleiben',
     'welcome' => 'Willkommen im Blog',
     'current_language' => 'Aktuelle Sprache',
     'diagnostics' => 'Diagnostik',
