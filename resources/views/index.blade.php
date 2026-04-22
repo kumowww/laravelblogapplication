@@ -18,7 +18,7 @@
 
         <form action="{{ route('system.clear', ['locale' => $locale]) }}" method="POST">
             @csrf
-            <button type="submit" class="btn btn-secondary">@lang('messages.clear_cache')</button>
+            <button type="submit" class="btn">@lang('messages.clear_cache')</button>
         </form>
     </div>
 

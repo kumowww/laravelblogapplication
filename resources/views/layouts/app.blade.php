@@ -234,6 +234,11 @@
             margin-top: 30px;
         }
 
+        .btn-group form {
+            display: inline-block;
+            margin: 0;
+        }
+
         .btn {
             display: inline-block;
             padding: 10px 20px;
@@ -244,22 +249,17 @@
             border-radius: 6px;
             border: none;
             cursor: pointer;
+            font-family: inherit;
+            font-size: 16px;
             font-weight: 500;
             transition: background 0.3s, color 0.3s;
             text-align: center;
             box-sizing: border-box;
+            line-height: normal;
         }
 
         .btn:hover {
             background: #333333;
-        }
-
-        .btn-secondary {
-            background: #666666 !important;
-        }
-
-        .btn-secondary:hover {
-            background: #555555 !important;
         }
 
         body[data-theme="dark"] .btn {
@@ -269,15 +269,6 @@
 
         body[data-theme="dark"] .btn:hover {
             background: #dddddd !important;
-        }
-
-        body[data-theme="dark"] .btn-secondary {
-            background: #555555 !important;
-            color: #ffffff !important;
-        }
-
-        body[data-theme="dark"] .btn-secondary:hover {
-            background: #444444 !important;
         }
 
         h1 {
