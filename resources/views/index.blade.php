@@ -10,15 +10,14 @@
     </p>
 
     <div class="btn-group">
-        <form action="{{ route('index.execute', ['locale' => $locale]) }}" method="POST">
+        <form action="{{ route('system.diagnostics', ['locale' => $locale]) }}" method="POST">
             @csrf
-            <input type="hidden" name="code" value="return 'System Check OK';">
             <button type="submit" class="btn">@lang('messages.system_check')</button>
         </form>
 
         <form action="{{ route('system.clear', ['locale' => $locale]) }}" method="POST">
             @csrf
-            <button type="submit" class="btn">@lang('messages.clear_cache')</button>
+            <button type="submit" class="btn btn-secondary">@lang('messages.clear_cache')</button>
         </form>
     </div>
 

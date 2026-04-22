@@ -262,6 +262,14 @@
             background: #333333;
         }
 
+        .btn-secondary {
+            background: #666666 !important;
+        }
+
+        .btn-secondary:hover {
+            background: #555555 !important;
+        }
+
         body[data-theme="dark"] .btn {
             background: #ffffff !important;
             color: #000000 !important;
@@ -269,6 +277,15 @@
 
         body[data-theme="dark"] .btn:hover {
             background: #dddddd !important;
+        }
+
+        body[data-theme="dark"] .btn-secondary {
+            background: #555555 !important;
+            color: #ffffff !important;
+        }
+
+        body[data-theme="dark"] .btn-secondary:hover {
+            background: #444444 !important;
         }
 
         h1 {
@@ -347,6 +364,11 @@
                 <a href="{{ route('home', ['locale' => $locale]) }}">@lang('messages.home')</a>
                 <a href="{{ route('posts.index', ['locale' => $locale]) }}">@lang('messages.posts')</a>
                 <a href="{{ route('products.index', ['locale' => $locale]) }}">@lang('messages.products')</a>
+                @auth
+                    <a href="{{ url('/dashboard') }}">Dashboard</a>
+                @else
+                    <a href="{{ route('login') }}">Login</a>
+                @endauth
             </nav>
             
             <div class="top-right-controls">
