@@ -2,6 +2,8 @@
 
 A minimalist blog system built with Laravel, Blade templates, and Tailwind CSS. This project is optimized for serverless deployment on the Vercel platform.
 
+<img width="1261" height="838" alt="image" src="https://github.com/user-attachments/assets/fa3ad0fc-ecb5-40f8-9dad-752940eff32a" />
+
 Visit the live project: [https://laravelblogapplication.vercel.app/](https://laravelblogapplication.vercel.app/)
 
 ## Features
