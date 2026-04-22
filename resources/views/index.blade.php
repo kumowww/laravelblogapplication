@@ -23,8 +23,8 @@
     </div>
 
     <div class="btn-group">
-        <a href="{{ route('posts.index', ['locale' => $locale]) }}" class="btn">@lang('messages.view_posts')</a>
-        <a href="{{ route('products.index', ['locale' => $locale]) }}" class="btn">@lang('messages.view_products')</a>
+        <a href="{{ route('posts.index', ['locale' => $locale]) }}" class="btn">@lang('messages.posts')</a>
+        <a href="{{ route('products.index', ['locale' => $locale]) }}" class="btn">@lang('messages.products')</a>
     </div>
 </div>
 @endsection
