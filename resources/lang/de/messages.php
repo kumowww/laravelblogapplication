@@ -8,8 +8,6 @@ return [
     'current_language' => 'Aktuelle Sprache',
     'diagnostics' => 'Diagnostik',
     'clear_cache' => 'Cache leeren',
-    'posts' => 'Beiträge',
-    'products' => 'Produkte',
     'error' => 'Fehler',
     'all_rights_reserved' => 'Alle Rechte vorbehalten.',
     'created_by' => 'Erstellt von',
@@ -19,5 +17,5 @@ return [
     'products_under_development_description' => 'Die Produktfunktion wird derzeit weiterentwickelt. Die Zukunft dieser Funktionalität ist noch unbestimmt.',
     'back_to_home' => 'Zurück zur Startseite',
     'cache_cleared' => 'Cache erfolgreich geleert.',
-    'system_check_ok' => 'System funktioniert einwandfrei.',
+    'diagnostics_ok' => 'Diagnose erfolgreich abgeschlossen.',
 ];

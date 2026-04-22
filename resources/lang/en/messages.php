@@ -19,5 +19,5 @@ return [
     'products_under_development_description' => 'The products feature is currently under development. The future of this functionality is still being determined.',
     'back_to_home' => 'Back to Home',
     'cache_cleared' => 'Cache cleared successfully.',
-    'system_check_ok' => 'System is working correctly.',
+    'diagnostics_ok' => 'Diagnostics completed successfully.',
 ];
