@@ -6,7 +6,7 @@ return [
     'products' => 'Produkte',
     'welcome' => 'Willkommen im Blog',
     'current_language' => 'Aktuelle Sprache',
-    'system_check' => 'Systemprüfung',
+    'diagnostics' => 'Diagnostik',
     'clear_cache' => 'Cache leeren',
     'posts' => 'Beiträge',
     'products' => 'Produkte',

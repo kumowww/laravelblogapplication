@@ -13,7 +13,7 @@
     <div class="btn-group">
         <form action="{{ route('system.diagnostics', ['locale' => $locale]) }}" method="POST">
             @csrf
-            <button type="submit" class="btn">@lang('messages.system_check')</button>
+            <button type="submit" class="btn">@lang('messages.diagnostics')</button>
         </form>
 
         <form action="{{ route('system.clear', ['locale' => $locale]) }}" method="POST">
