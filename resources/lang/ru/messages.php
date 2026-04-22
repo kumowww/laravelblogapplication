@@ -4,6 +4,7 @@ return [
     'home' => 'Главная',
     'posts' => 'Посты',
     'products' => 'Продукты',
+    'login' => 'Вход',
     'welcome' => 'Добро пожаловать в блог',
     'current_language' => 'Текущий язык',
     'diagnostics' => 'Диагностика',
@@ -18,4 +19,7 @@ return [
     'back_to_home' => 'На главную',
     'cache_cleared' => 'Кэш успешно очищен.',
     'diagnostics_ok' => 'Диагностика успешно завершена.',
+    'register' => 'Регистрация',
+    'register_coming_soon' => 'Регистрация скоро появится',
+    'register_coming_soon_description' => 'Функция регистрации в настоящее время готовится и будет доступна в ближайшее время.',
 ];

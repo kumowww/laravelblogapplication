@@ -4,6 +4,7 @@ return [
     'home' => 'Startseite',
     'posts' => 'Beiträge',
     'products' => 'Produkte',
+    'login' => 'Anmelden',
     'welcome' => 'Willkommen im Blog',
     'current_language' => 'Aktuelle Sprache',
     'diagnostics' => 'Diagnostik',
@@ -18,4 +19,7 @@ return [
     'back_to_home' => 'Zurück zur Startseite',
     'cache_cleared' => 'Cache erfolgreich geleert.',
     'diagnostics_ok' => 'Diagnose erfolgreich abgeschlossen.',
+    'register' => 'Registrieren',
+    'register_coming_soon' => 'Registrierung kommt bald',
+    'register_coming_soon_description' => 'Die Registrierungsfunktion wird derzeit vorbereitet und wird in Kürze verfügbar sein.',
 ];

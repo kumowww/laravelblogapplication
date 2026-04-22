@@ -366,8 +366,6 @@
                 <a href="{{ route('products.index', ['locale' => $locale]) }}">@lang('messages.products')</a>
                 @auth
                     <a href="{{ url('/dashboard') }}">Dashboard</a>
-                @else
-                    <a href="{{ route('login') }}">Login</a>
                 @endauth
             </nav>
             
@@ -384,6 +382,10 @@
                         <span class="icon moon">☾</span>
                     </span>
                 </label>
+                @guest
+                    <a href="{{ route('login') }}" class="btn" style="width: auto; padding: 6px 16px;">@lang('messages.login')</a>
+                    <a href="{{ route('register') }}" class="btn btn-secondary" style="width: auto; padding: 6px 16px;">@lang('messages.register')</a>
+                @endguest
             </div>
         </div>
     </header>

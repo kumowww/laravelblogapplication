@@ -5,6 +5,7 @@ use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', '/en');
@@ -15,6 +16,7 @@ Route::prefix('{locale}')->where(['locale' => 'en|ru|de'])->group(function () {
     Route::post('/system/clear', [IndexController::class, 'clear'])->name('system.clear');
     Route::resource('posts', PostController::class);
     Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+    Route::get('/register', [RegisterController::class, 'create'])->name('register');
 });
 
 Route::middleware('auth')->group(function () {
