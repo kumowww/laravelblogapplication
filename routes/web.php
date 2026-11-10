@@ -13,8 +13,16 @@ Route::redirect('/', '/en');
 
 Route::prefix('{locale}')->where(['locale' => 'en|ru|de'])->group(function () {
     Route::get('/', [IndexController::class, 'index'])->name('home');
-    Route::post('/diagnostics', [IndexController::class, 'execute'])->name('system.diagnostics');
-    Route::post('/system/clear', [IndexController::class, 'clear'])->name('system.clear');
+
+    Route::get('/dashboard', function () {
+        return redirect()->route('home');
+    })->name('dashboard');
+
+    Route::middleware('auth')->group(function () {
+        Route::post('/diagnostics', [IndexController::class, 'execute'])->name('system.diagnostics');
+        Route::post('/system/clear', [IndexController::class, 'clear'])->name('system.clear');
+    });
+
     Route::resource('posts', PostController::class);
     Route::get('/products', [ProductController::class, 'index'])->name('products.index');
     
