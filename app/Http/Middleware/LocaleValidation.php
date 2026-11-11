@@ -14,7 +14,11 @@ class LocaleValidation
     {
         $locale = $request->route('locale');
 
-        if (!in_array($locale, $this->validLocales)) {
+        if ($locale === null) {
+            return $next($request);
+        }
+
+        if (! in_array($locale, $this->validLocales, true)) {
             return redirect('/en');
         }
 
