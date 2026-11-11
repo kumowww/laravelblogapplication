@@ -12,7 +12,11 @@ Visit the live project: [https://laravelblogapplication.vercel.app/](https://lar
 * Responsive design with Tailwind CSS
 * Multi-language support (English, German, Russian)
 * PostgreSQL/MySQL/SQLite support via environment configuration
-* Vercel serverless deployment ready
+* User authentication and profile functionality based on Laravel Breeze components
+* Blog post model, database migration, and post routes
+* Vercel serverless deployment configuration
+
+The post routes and database model are present, but the post controller currently implements only the index and create actions. Full post creation, editing, and deletion are not yet available.
 
 ## Requirements
 
@@ -25,66 +29,86 @@ Visit the live project: [https://laravelblogapplication.vercel.app/](https://lar
 
 Clone the repository:
 
+```bash
 git clone https://github.com/kumowww/laravelblogapplication.git
-
-Navigate to the project directory:
-
 cd laravelblogapplication
-Install PHP dependencies:
+```
 
-bash
+Install PHP dependencies and prepare the environment:
+
+```bash
 composer install
-Install Node dependencies:
-
-npm install
-Environment Setup
-Copy the example environment file:
-
 cp .env.example .env
-Generate application key:
-
 php artisan key:generate
-Database
-Configure your database in the .env file. For SQLite:
+```
 
+For a local SQLite database:
+
+```bash
 touch database/database.sqlite
-Run migrations:
+```
 
+Set the database configuration in `.env`, then run migrations:
+
+```bash
 php artisan migrate
-Running the Project
-Start Vite (Frontend):
+```
 
-npm run dev
-Start Laravel server:
+Install frontend dependencies and build the assets:
 
+```bash
+npm install
+npm run build
+```
+
+## Running the Project
+
+Start the Laravel development server:
+
+```bash
 php artisan serve
-Open in browser: http://127.0.0.1:8000
+```
 
-Project Structure
-routes/ - application routes
+For frontend development with Vite, run this in another terminal:
 
-app/ - core logic (controllers, middleware, models)
+```bash
+npm run dev
+```
 
-resources/views/ - Blade templates
+Open the application at [http://127.0.0.1:8000](http://127.0.0.1:8000).
 
-resources/lang/ - localization files (en, ru, de)
+## Project Structure
 
-public/ - public assets
+* `app/` - controllers, middleware, models, and application logic
+* `routes/` - web and authentication routes
+* `database/` - migrations, factories, and seeders
+* `resources/views/` - Blade templates
+* `resources/js/` - Vue pages and frontend components
+* `resources/lang/` - localization files for English, Russian, and German
+* `public/` - public assets
+* `api/` - serverless entry point for Vercel
 
-api/ - serverless entry point for Vercel
+## Tests
 
-Deployment on Vercel
+The project uses PHPUnit through Laravel's test runner. Tests use an in-memory SQLite database as configured in `phpunit.xml`.
+
+Run the test suite with:
+
+```bash
+php artisan test
+```
+
+## Deployment on Vercel
+
 This project includes configuration files for Vercel serverless deployment:
 
-vercel.json - Vercel project configuration
+* `vercel.json` - Vercel project configuration
+* `api/index.php` - serverless PHP entry point
+* `.vercelignore` - files to exclude from deployment
 
-api/index.php - Serverless PHP entry point
+Connect the GitHub repository to Vercel and configure the required environment variables:
 
-.vercelignore - Files to exclude from deployment
-
-To deploy, connect your GitHub repository to Vercel and configure the required environment variables:
-
-text for Vertel or .env:
+```text
 APP_KEY=your-generated-app-key
 APP_DEBUG=false
 APP_URL=https://your-domain.vercel.app
@@ -94,19 +118,12 @@ DB_PORT=5432
 DB_DATABASE=your-database-name
 DB_USERNAME=your-username
 DB_PASSWORD=your-password
-Future Improvements
-Authentication system
+```
 
-CRUD functionality for blog posts
+## Creator
 
-Admin panel
+Created by [kumowww](https://github.com/kumowww)
 
-API endpoints
+## License
 
-Enhanced UI with more interactive features
-
-Creator
-Created by github:kumowww
-
-License
 This project is open-source and available under the MIT License.
