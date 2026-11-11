@@ -2,16 +2,17 @@
 
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
-    /**
-     * A basic test example.
-     */
-    public function test_that_true_is_true(): void
+    public function test_home_page_redirects_to_the_default_locale(): void
     {
-        $this->get(route('home'))->assertOk();
-        $this->assertTrue(true);
+        $this->get('/')->assertRedirect('/en');
+    }
+
+    public function test_localized_home_page_loads(): void
+    {
+        $this->get('/en')->assertOk();
     }
 }
